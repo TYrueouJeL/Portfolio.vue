@@ -1,6 +1,6 @@
 // composables/useScrollNavigation.ts
 export function useScrollNavigation() {
-  const sections = ['accueil', 'competences', 'experiences', 'projets', 'contact']
+  const sections = ['accueil', 'competences', 'experiences', 'projets', 'veille', 'contact']
   
   let isScrolling = false
   let lastScrollTime = 0

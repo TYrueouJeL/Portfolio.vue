@@ -1,9 +1,10 @@
 <template>
     <div>
-        <Hero :skills="skills"/>
-        <Skills :skills="skills" />
+        <Hero/>
+        <Skills :skillTypes="skillTypes" />
         <Experiences :experiences="experiences"/>
         <Projects :projects="projects" />
+        <Veilles :medias="medias"/>
     </div>
 </template>
 
@@ -11,16 +12,42 @@
 import Experiences from '~/components/Experiences.vue';
 import Projects from '~/components/Projects.vue';
 import Skills from '~/components/Skills.vue';
+import Veilles from '~/components/Veilles.vue';
 import { useScrollNavigation } from '~/composable/useScrollNavigation';
 import type { Experience } from '~/types/experience';
+import type { Media } from '~/types/media';
 import type { Project } from '~/types/project';
 import type { Skill } from '~/types/skill';
+import type { SkillType } from '~/types/skillType';
+import type { Veille } from '~/types/veille';
 
-const skills: Skill[] = [
+const skillsLanguage: Skill[] = [
+    { name: "Javascript", isKey: true },
+    { name: "PHP", isKey: true },
+    { name: "TailwindCSS", isKey: true },
+    { name: "SQL", isKey: true },
+    { name: "C#", isKey: true },
+]
+
+const skillsFramworks: Skill[] = [
+    { name: "React", isKey: true },
+    { name: "Vue", isKey: true },
     { name: "Nuxt", isKey: true },
     { name: "AdonisJS", isKey: true },
-    { name: "Symfony", isKey: false },
-    { name: "TailwindCSS", isKey: true },
+    { name: "Unity", isKey: true },
+    { name: "Symfony", isKey: true },
+]
+
+const skillsTools: Skill[] = [
+    { name: "Docker", isKey: true },
+    { name: "Git", isKey: true },
+    { name: "Linear", isKey: true },
+]
+
+const skillTypes: SkillType[] = [
+    { name: "Languages", skills: skillsLanguage },
+    { name: "Libraires et frameworks", skills: skillsFramworks },
+    { name: "Outils", skills: skillsTools },
 ]
 
 const experiences: Experience[] = [
@@ -29,7 +56,28 @@ const experiences: Experience[] = [
 ]
 
 const projects: Project[] = [
-    { name: "TaskManager", competences: [skills[0], skills[1], skills[3]] as Skill[], description: 'Un site web de gestion de tâches et de projets' }
+    { name: "TaskManager", competences: [skillsLanguage[0], skillsLanguage[1], skillsLanguage[3]] as Skill[], description: 'Un site web de gestion de tâches et de projets' }
+]
+
+const veillesTwitter: Veille[] = [
+    { name: 'Camille Roux', link: 'https://x.com/CamilleRoux' },
+    { name: 'Romain Lanz', link: 'https://x.com/romainlanz' },
+    { name: 'Claude', link: 'https://x.com/claudeai' },
+    { name: 'Vue', link: 'https://x.com/vuejs' },
+    { name: 'Nuxt', link: 'https://x.com/nuxt_js' },
+    { name: 'AdonisJS', link: 'https://x.com/adonisframework' },
+]
+
+const veillesYoutube: Veille[] = [
+    { name: 'Benjamin Code', link: 'https://www.youtube.com/@BenjaminCode' },
+    { name: 'Coding with lewis', link: 'https://www.youtube.com/@CodingWithLewis' },
+    { name: 'cocadmin', link: 'https://www.youtube.com/@cocadmin' },
+    { name: 'Underscore', link: 'https://www.youtube.com/@Underscore_' },
+]
+
+const medias: Media[] = [
+    { name: 'Youtube', veilles: veillesYoutube },
+    { name: 'Twitter', veilles: veillesTwitter },
 ]
 
 useScrollNavigation()

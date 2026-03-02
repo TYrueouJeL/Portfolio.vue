@@ -25,8 +25,12 @@ import AOSBlock from './AOSBlock.vue';
         <AOSBlock type="fade-down" :duration="750" :delay="1000">
           <a href="#projets" class="hover:underline">Projets</a>
         </AOSBlock>
-  
+
         <AOSBlock type="fade-down" :duration="750" :delay="1250">
+          <a href="#veille" class="hover:underline">Veille</a>
+        </AOSBlock>
+  
+        <AOSBlock type="fade-down" :duration="750" :delay="1500">
           <a href="#contact" class="hover:underline">Contact</a>
         </AOSBlock>
       </div>
